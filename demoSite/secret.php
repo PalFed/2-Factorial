@@ -22,9 +22,14 @@ if (isset($_POST['secret']))
 if ($authorised) print "<p><strong>You are currently authorized</strong></p>";
 else print "<p><strong>You are not currently authorized</strong></p>";
 ?>
-<p>Please enter your 2FA secret. This must match what has been entered in the 2 Factorial preferences as the secret for <?php echo $_SERVER['HTTP_HOST']; ?>. The current secret is not shown. <a href='index.php'>Home</a></p>
+<p>Please enter your 2FA secret. This must match what has been entered in the 2 Factorial preferences as the secret for <?php echo $_SERVER['HTTP_HOST']; ?>. <?php
+
+if (isset($_SESSION['ServerSideSecret'])) print "The current secret is not shown.";
+else print "No secret has been set.";
+    ?> <a href='index.php'>Home</a></p>
+<p>Note: The secret is stored in the session, which will timeout after <?php echo number_format(ini_get("session.gc_maxlifetime"), 0); ?> seconds of inactivity.</p>
 <form action="secret.php" method="post">
-    Secret: <input type="password" name="secret"> <input type='submit' value='Save Secret'>
+    Secret: <input title="Secret" type="password" name="secret"> <input type='submit' title="Save Secret" value='Save Secret'>
 </form>
 <hr>
 <h2>Real Installation</h2>
