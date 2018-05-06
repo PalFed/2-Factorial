@@ -16,7 +16,7 @@ function storeSettings(restoredSettings) {
 
     if (browser !== undefined)
     {
-        if (urlInput.value=="") alert("You didn't enter a URL");
+        if (urlInput.value=="") alert("You didn't enter a domain");
         else if (secretInput.value=="") alert("You didn't enter a secret");
         else
         {
@@ -27,7 +27,10 @@ function storeSettings(restoredSettings) {
             }
             
             // Add/Modify the secret
-            restoredSettings["twoFactorial"][urlInput.value]=secretInput.value;
+            var url=urlInput.value;
+            if (url.substr(0,7)=="http://") url=url.substr(7);
+            else if (url.substr(0,8)=="https://") url=url.substr(8);
+            restoredSettings["twoFactorial"][url]=secretInput.value;
 
             // Save
             browser.storage.local.set(restoredSettings);

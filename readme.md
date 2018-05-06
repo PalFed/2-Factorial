@@ -21,11 +21,10 @@ At this point you should not be able to login to www.example.com from any other 
 
 ## Website Perspective
 
-There are a numbers of options for how to implement 2 Factorial on a website.
-In all cases, you will need a place where a logged in user can save their 2 Factorial secret for your site.
+You will need a place where a logged in user can save their 2 Factorial secret for your site.
 
-You can then make a call to a page that requires 2FA via 2 Factorial and authorize the user/device, or you can authorize 
-the user on every page load.
+You can then make a call to a page that requires 2FA via 2 Factorial and authorize the user/device for the session, or you can authorize 
+the user on chosen (or all) page loads.
 
 Authorization is very simple. There will be two headers in page requests that give you a hash and a salt.
 You simply sha-256 hash the salt concatenated with the secret that the user saved and check that it matches the hash. 
