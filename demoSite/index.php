@@ -24,7 +24,7 @@ $authorised=check2Factorial($_SESSION['ServerSideSecret']);
     <h2>Real Installation</h2>
     <p>In a real installation, this message would not exist. This would be whatever page in the webapp the user is going to.</p>
 <?php } else { ?>
-    <p>Note: You must install the 2-Factorial web extension for this to work. It can currently be installed by downloading the <a href="https://github.com/PalFed/2-Factorial">source code</a> and installing with about:debug</p>
+    <p>Note: You must install the 2-Factorial web extension for this to work. It can currently be installed by downloading the <a href="https://github.com/PalFed/2-Factorial">source code</a> and installing with about:debugging</p>
 
 <p>You are not authorized to view this page. <a href='secret.php'>Setup 2FA</a></p>
     <hr>
