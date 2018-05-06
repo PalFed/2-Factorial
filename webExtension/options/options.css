@@ -1,0 +1,69 @@
+body {
+    width: 25em;
+    font-family: "Open Sans Light", sans-serif;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.title {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+label {
+    float: right;
+}
+
+input {
+    margin: 0.5em;
+    width: 200px;
+    height: 2.5em;
+}
+
+input[type=button] {
+    width: 90px;
+}
+
+.clear
+{
+    clear: both;
+    float: none;
+}
+
+.itemWrapper
+{
+    margin-bottom: 3px;
+    padding: 2px;
+}
+
+.itemWrapper.odd
+{
+    background-color: #eeeeee;
+}
+
+a {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.itemWrapper a
+{
+    margin-left: 1em;
+}
+
+.itemWrapper .url
+{
+    display: inline-block;
+    width: 150px;
+}
+
+h2 a{
+    margin-left: 0.4em;
+    font-size: 0.7em;
+}
+
+#importForm
+{
+    display: none;
+}

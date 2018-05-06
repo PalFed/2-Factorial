@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="options.css"/>
+</head>
+
+<body>
+
+<section class="form">
+    <div class="title" >Enter your 2Factorial secrets here</div>
+    <label>URL : <input id="url" type="text"/></label>
+    <label for="secret">Secret <a id="generate">make</a>: <input id="secret" type="text"/> </label>
+
+    <label for="nothing"><input type="button" id="clear" value="Clear"> <input type="button" id="addEdit" value="Save"></label>
+    <div class="clear"></div>
+
+</section>
+<h2>Saved Secrets <a id="importSecrets">Import (csv)</a> <a id="exportSecrets">Export (csv)</a></h2>
+<div id="importForm"><input type="file" id="importInput" multiple /></div>
+<p id='existingSecrets'>
+
+</p>
+<a id="removeAll">Remove All Secrets</a>
+<script src="options.js"></script>
+</body>
+
+</html>

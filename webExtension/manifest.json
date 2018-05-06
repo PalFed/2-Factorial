@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "2 Factorial",
+  "version": "0.1",
+
+  "description": "2 Factorial : Automatic 2 Factor Authentication",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>" //Required for Google Chrome. Not, currently, needed for Firefox.
+  ],
+
+  "background" : {
+    "scripts" : ["background.js"]
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  }
+}
