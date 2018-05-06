@@ -6,6 +6,10 @@ On a supported web site, a user must create a secret that is saved in the extens
 Once saved on the website, only devices with the 2 Factorial extension enabled that the user has entered this secret for 
 will be able to access the site. Any other devices will not be authorized.
 
+You can view the demo site (demoSite/ from the project) at https://2factorial.com - This demo pretends that you are 
+already logged in and allows you to setup 2FA to authorize yourself. Note that you will have to first install the
+2 Factorial web extension.
+
 ## Client Perspective
 
 When you login or register for a site that supports 2FA via 2 Factorial, go to the preferences for the 2 Factorial 
@@ -62,7 +66,11 @@ if (!$authorized)
 }
 ``` 
 
+## What 2 Factorial is not
+2 Factorial is not a replacement for 2FA via email or SMS (or other methods that require human interaction).
 
+2 Factorial works to enhance security with minimal user interaction. It is very secure as long as your secret(s) are 
+not leaked.
 
 
 
