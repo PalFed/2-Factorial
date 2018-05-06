@@ -27,7 +27,7 @@ else print "<p><strong>You are not currently authorized</strong> <a href='index.
 if (isset($_SESSION['ServerSideSecret'])) print "The current secret is not shown.";
 else print "No secret has been set.";
     ?></p>
-<p>Note: The secret is stored in the session, which will timeout after <?php echo number_format(ini_get("session.gc_maxlifetime"), 0); ?> seconds of inactivity.</p>
+<p>Note: The secret for this demo is stored in the session, which will timeout after <?php echo number_format(ini_get("session.gc_maxlifetime"), 0); ?> seconds of inactivity.</p>
 <form action="secret.php" method="post">
     Secret: <input title="Secret" type="password" name="secret"> <input type='submit' title="Save Secret" value='Save Secret'>
 </form>
