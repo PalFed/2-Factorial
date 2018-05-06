@@ -27,7 +27,7 @@ $authorised=check2Factorial($_SESSION['ServerSideSecret']);
 <p>You are not authorized to view this page. <a href='secret.php'>Setup 2FA</a></p>
     <hr>
     <h2>Real Installation</h2>
-    <p>In a real installation, this page would only be shown if the user was not authorized. The Setup 2FA link would not be here in a real application, but would be part of the users profile setup.</p>
+    <p>In a real installation, this page would only be shown if the user was not authorized. The Setup 2FA link would not be here in a real application, but would be part of the user's profile setup.</p>
 <?php } ?>
 </body>
 </html>
