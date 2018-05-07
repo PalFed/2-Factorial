@@ -17,7 +17,7 @@
   ],
 
   "background" : {
-    "scripts" : ["background.js"]
+    "scripts" : ["background.js", "thirdparty/forge-sha256.min.js"]
   },
 
   "options_ui": {

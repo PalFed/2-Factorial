@@ -7,7 +7,7 @@
 </head>
 
 <body>
-
+<h1>2 Factorial Settings</h1>
 <a class="normal" name="editsecret"><h2>Add/Edit Secret</h2></a>
 <section class="form">
     <div class="title">Enter new, or modify existing 2 Factorial secrets here.</div>
@@ -19,7 +19,10 @@
 
 </section>
 <h2>Saved Secrets <a id="importSecrets">Import (csv)</a> <a id="exportSecrets">Export (csv)</a></h2>
-<div id="importForm"><input type="file" id="importInput" multiple /></div>
+<div id="importForm">
+    <p>Importing will not delete existing secrets, but will overwrite existing secrets if they exist in the import.</p>
+    <input type="file" id="importInput" multiple /></div>
+<p><strong>Warning: Removing the plugin will delete your secrets. Make sure to export them first if you choose to remove!</strong></p>
 <p id='existingSecrets'>
 
 </p>
