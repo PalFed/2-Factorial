@@ -8,11 +8,11 @@ function check2Factorial($userSecret)
     $headers =  getallheaders();
     if (isset($headers["Two-Factorial"]))
     {
-        // Change = to 0 for padding
-        $userSecret=preg_replace('/=/', "", $userSecret);
+        // Base32 encode and Remove =
+        $userSecret=preg_replace('/=/', "", Base32::encode($userSecret));
 
         // Verify with TOTP
-        $totp = new \OTPHP\TOTP(Base32::encode($userSecret));
+        $totp = new \OTPHP\TOTP($userSecret);
         return $totp->verify($headers["Two-Factorial"]);
     }
     return false;
