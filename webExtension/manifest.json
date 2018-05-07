@@ -17,7 +17,7 @@
   ],
 
   "background" : {
-    "scripts" : ["background.js", "thirdparty/totp.js", "thirdparty/jsSHA/sha.js", "thirdparty/base32encode.js"]
+    "scripts" : ["background.js", "thirdparty/totp.js", "thirdparty/jsSHA/sha_dev.js", "thirdparty/base32encode.js"]
   },
 
   "options_ui": {

@@ -58,7 +58,6 @@ function updateUI(restoredSettings) {
     var csv="";
 
     existing.innerHTML="";
-    //console.log(dump(restoredSettings));
     for (var url in restoredSettings.twoFactorial)
     {
         addItem(url, 1, count);

@@ -8,9 +8,6 @@ function check2Factorial($userSecret)
     $headers =  getallheaders();
     if (isset($headers["Two-Factorial"]))
     {
-        // It doesn't seem to matter, but strip the trailing =
-        $userSecret=preg_replace('/^([^=]+)/', "$1", $userSecret);
-
         // Verify with TOTP
         $totp = new \OTPHP\TOTP(Base32::encode($userSecret));
         return $totp->verify($headers["Two-Factorial"]);
