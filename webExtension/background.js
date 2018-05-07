@@ -31,7 +31,7 @@ function add2FactorialHeader(e) {
 
         var header = {};
         header.name="Two-Factorial";
-        header.value=generateTOTP(secretToBase32(secrets[host]));
+        header.value=generateTOTP(base32.encode(secrets[host]));
         e.requestHeaders.push(header);
     }
 
