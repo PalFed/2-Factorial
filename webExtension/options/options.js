@@ -185,6 +185,8 @@ document.addEventListener('click',function(e){
         gettingStoredSettings.then(function(secrets) {
             var mydetails=secrets["twoFactorial"][myurl];
             urlInput.value=myurl;
+            location.hash = "#editsecret";
+
         });
     }
     else if(e.target && e.target.classList.contains('remove')){

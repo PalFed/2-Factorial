@@ -10,11 +10,15 @@ body {
     margin-bottom: 0.5em;
 }
 
-label {
+.form label {
     float: right;
 }
+.storage
+{
+    margin-bottom: 1em;
+}
 
-input {
+input[type=text] {
     margin: 0.5em;
     width: 200px;
     height: 2.5em;
@@ -45,6 +49,12 @@ a {
     cursor: pointer;
     color: blue;
     text-decoration: underline;
+}
+
+a.normal {
+    cursor: inherit;
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .itemWrapper a
