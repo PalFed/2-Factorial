@@ -1,14 +1,22 @@
 <?php
+include_once 'thirdparty/base32.php';
+include_once 'thirdparty/otp.php';
+include_once 'thirdparty/totp.php';
+
 function check2Factorial($userSecret)
 {
     $headers =  getallheaders();
-    if (isset($headers["Two-Factorial"]) && isset($headers["Two-Factorial-Salt"]))
+    if (isset($headers["Two-Factorial"]))
     {
-        if (hash("sha256", $headers["Two-Factorial-Salt"].$userSecret)==$headers["Two-Factorial"])
-        {
-            return true;
-        }
+        // It doesn't seem to matter, but strip the trailing =
+        $userSecret=preg_replace('/^([^=]+)/', "$1", $userSecret);
+
+        // Verify with TOTP
+        $totp = new \OTPHP\TOTP(Base32::encode($userSecret));
+        return $totp->verify($headers["Two-Factorial"]);
     }
     return false;
 }
+
+
 ?>

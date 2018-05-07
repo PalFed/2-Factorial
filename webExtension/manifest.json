@@ -17,11 +17,12 @@
   ],
 
   "background" : {
-    "scripts" : ["background.js", "thirdparty/forge-sha256.min.js"]
+    "scripts" : ["background.js", "thirdparty/totp.js", "thirdparty/jsSHA/sha.js", "thirdparty/base32encode.js"]
   },
 
   "options_ui": {
     "page": "options/options.html",
-    "open_in_tab":true
+    "open_in_tab":true,
+    "browser_style":true
   }
 }

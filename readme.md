@@ -1,6 +1,6 @@
 # 2 Factorial web extension
 
-2 Factorial is a web extension aiming to provide additional, automated 2 factor authentication for websites that support it.
+2 Factorial is a web extension aiming to provide additional, automated 2 factor authentication with TOTP for websites that support it.
 
 On a supported web site, a user must create a secret that is saved in the extension as well as on the website.
 Once saved on the website, only devices with the 2 Factorial extension enabled that the user has entered this secret for 
@@ -27,12 +27,14 @@ At this point you should not be able to login to www.example.com from any other 
 
 You will need a place where a logged in user can save their 2 Factorial secret for your site.
 
-You can then make a call to a page that requires 2FA via 2 Factorial and authorize the user/device for the session, or you can authorize 
-the user on chosen (or all) page loads.
+You can then make a call to a page that requires 2FA via 2 Factorial and authorize the user/device for the session, 
+or you can authorize the user on chosen (or all) page loads.
 
-Authorization is very simple. There will be two headers in page requests that give you a hash and a salt.
-You simply sha-256 hash the salt concatenated with the secret that the user saved and check that it matches the hash. 
-If it does the user is authorized. If it does not, or there is no header, the user is not authorized.
+Authorization is very simple. There will be a new header in page requests that give you the one time password generated
+as per [RFC 6238](https://tools.ietf.org/html/rfc6238) (TOTP algorithm).
+
+You use a TOTP implementation for your server side programming language that checks that the password is valid with 
+the known secret.
 
 Due to the unreliable nature of both and people, if a user is not authorized, you should provide a route to 
 authentication via further means that require human interaction, e.g. an email with a link, or an SMS. This will also 
@@ -42,14 +44,13 @@ PHP Snippet:
 
 ```
 function check2Factorial($userSecret)
-{
+{    
     $headers =  getallheaders();
-    if (isset($headers["Two-Factorial"]) && isset($headers["Two-Factorial-Salt"]))
+    if (isset($headers["Two-Factorial"]))
     {
-        if (hash("sha256", $headers["Two-Factorial-Salt"].$userSecret)==$headers["Two-Factorial"])
-        {
-            return true;
-        }
+        $userSecret=preg_replace('/^([^=]+)/', "$1", $userSecret);
+        $totp = new \OTPHP\TOTP(Base32::encode($userSecret));
+        return $totp->verify($headers["Two-Factorial"]);        
     }
     return false;
 }
