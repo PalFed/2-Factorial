@@ -22,7 +22,7 @@ if (isset($_POST['secret']))
 if ($authorised) print "<p><strong>You are currently authorized</strong> <a href='index.php'>Home</a></p>";
 else print "<p><strong>You are not currently authorized</strong> <a href='index.php'>Home</a></p>";
 ?>
-<p>Please enter your 2FA secret. This must match what has been entered in the 2 Factorial preferences as the secret for <?php echo $_SERVER['HTTP_HOST']; ?>. <?php
+<p>Please enter your 2FA secret. This must match what has been entered in the 2 Factorial web extension preferences as the secret for this website, <code><?php echo $_SERVER['HTTP_HOST']; ?></code>. <?php
 
 if (isset($_SESSION['ServerSideSecret'])) print "The current secret is not shown.";
 else print "No secret has been set.";
