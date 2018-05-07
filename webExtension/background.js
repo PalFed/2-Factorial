@@ -17,7 +17,7 @@ function add2FactorialHeader(e) {
 
     for (var rHeader of e.requestHeaders) {
         if (rHeader.name.toLowerCase() === "host") {
-            host=header.value;
+            host=rHeader.value;
         }
     }
 
