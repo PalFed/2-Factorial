@@ -31,11 +31,23 @@ function add2FactorialHeader(e) {
 
         var header = {};
         header.name="Two-Factorial";
-        header.value=generateTOTP(base32.encode(secrets[host]));
+        header.value=generateTOTP(secretToBase32(secrets[host]));
         e.requestHeaders.push(header);
     }
 
     return {requestHeaders: e.requestHeaders};
+}
+
+function secretToBase32(secret)
+{
+    var out=base32.encode(secret);
+    return out.replaceAll('=','');
+}
+
+
+String.prototype.replaceAll = function(str1, str2, ignore)
+{
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
 }
 
 loadSecrets();
