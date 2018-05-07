@@ -9,7 +9,7 @@ function check2Factorial($userSecret)
     if (isset($headers["Two-Factorial"]))
     {
         // Change = to 0 for padding
-        $userSecret=preg_replace('/=/', "0", $userSecret);
+        $userSecret=preg_replace('/=/', "", $userSecret);
 
         // Verify with TOTP
         $totp = new \OTPHP\TOTP(Base32::encode($userSecret));
